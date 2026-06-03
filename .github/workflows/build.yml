@@ -45,6 +45,7 @@ jobs:
           haxelib install newgrounds --quiet
           haxelib install hxCodec --quiet
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit --quiet
+          haxelib git extension-androidtools https://github.com/jigsaw373/extension-androidtools --quiet
 
       - name: Install Android NDK
         run: |
