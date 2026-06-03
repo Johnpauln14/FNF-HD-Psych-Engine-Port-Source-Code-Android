@@ -20,16 +20,12 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Install Haxe 4.2.5
+      - name: Install Neko and Haxe
         run: |
-          sudo apt-get install -y neko
-          wget -q https://github.com/HaxeFoundation/haxe/releases/download/4.2.5/haxe-4.2.5-linux64.tar.gz
-          tar -xzf haxe-4.2.5-linux64.tar.gz
-          HAXE_DIR=$(ls -d haxe_*/ | head -1)
-          echo "$PWD/$HAXE_DIR" >> $GITHUB_PATH
-          echo "HAXE_STD_PATH=$PWD/$HAXE_DIR/std" >> $GITHUB_ENV
+          sudo apt-get update -y
+          sudo apt-get install -y neko haxe
           mkdir -p ~/haxelib
-          $PWD/$HAXE_DIR/haxelib setup ~/haxelib
+          haxelib setup ~/haxelib
 
       - name: Install lime and openfl
         run: |
