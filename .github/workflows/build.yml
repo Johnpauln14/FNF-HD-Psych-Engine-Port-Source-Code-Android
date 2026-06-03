@@ -30,18 +30,24 @@ jobs:
           mkdir -p ~/haxelib
           $PWD/$HAXE_DIR/haxelib setup ~/haxelib
 
-      - name: Install haxelib dependencies
+      - name: Install lime and openfl
         run: |
           haxelib install lime --quiet
           haxelib install openfl --quiet
+
+      - name: Install flixel libraries
+        run: |
           haxelib install flixel --quiet
           haxelib install flixel-addons --quiet
           haxelib install flixel-ui --quiet
+          haxelib install actuate --quiet
+
+      - name: Install other dependencies
+        run: |
           haxelib install hscript --quiet
           haxelib install newgrounds --quiet
-          haxelib install actuate --quiet
-          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit --quiet
           haxelib install hxCodec --quiet
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit --quiet
 
       - name: Install Android NDK
         run: |
