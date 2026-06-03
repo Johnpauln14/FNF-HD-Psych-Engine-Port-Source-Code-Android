@@ -22,6 +22,7 @@ jobs:
 
       - name: Install Haxe 4.2.5
         run: |
+          sudo apt-get install -y neko
           wget -q https://github.com/HaxeFoundation/haxe/releases/download/4.2.5/haxe-4.2.5-linux64.tar.gz
           tar -xzf haxe-4.2.5-linux64.tar.gz
           HAXE_DIR=$(ls -d haxe_*/ | head -1)
